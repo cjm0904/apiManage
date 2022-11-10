@@ -9,6 +9,8 @@
     <script src="./includeHtml.js" defer></script>
     <script src="../lib/flowbite.js" defer></script>
     <script src = "../lib/vue2.js"></script>
+    <script src = "../lib/ulid.min.js"></script>
+    <script src = "../lib/uuidv4.min.js"></script>
 </head>
 <body>
     <div class = 'flex h-screen w-screen m-3'>
@@ -24,7 +26,7 @@
                     기본정보
                 </div>
                 <div id = 'mainSaveBtn'>
-                    <button  v-on:click="saveBtn" class = 'w-full bg-gray-400 text-center border-4 m-3 pl-3 pr-3 font-bold'>
+                    <button  v-on:click="saveFn" class = 'w-full bg-gray-400 text-center border-4 m-3 pl-3 pr-3 font-bold'>
                         저장
                     </button>
                 </div>
@@ -41,27 +43,27 @@
                             <label for="client_secret" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">클라이언트 Secret*</label>
                             <input type="text" id="client_secret" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                         </div>
-                        <div>
-                            <button class = 'bg-gray-400 text-center border-4 m-3 pl-3 pr-3 font-bold'>
+                        <div id = 'reIssueBtn'>
+                            <button v-on:click='reIssue' class = 'bg-gray-400 text-center border-4 m-3 pl-3 pr-3 font-bold'>
                                 재발급
                             </button>
                         </div>
 
                         <div>
                             <label for="client_nm" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">클라이언트명</label>
-                            <input type="text" id="client_nm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            <input type="text" id="client_nm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                         <div>
                             <label for="cp_nm" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">그룹사명</label>
-                            <input type="text" id="cp_nm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            <input type="text" id="cp_nm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                         <div>
                             <label for="adm_emp_nm" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">대표관리자</label>
-                            <input type="text" id="adm_emp_nm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            <input type="text" id="adm_emp_nm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                         <div class = "col-span-3">
                             <label for="client_ip" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">클라이언트 IP</label>
-                            <input type="text" id="client_ip" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            <input type="text" id="client_ip" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                 </form>

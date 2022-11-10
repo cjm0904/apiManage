@@ -1,10 +1,11 @@
+// 저장버튼 온클릭 처리
 var mainSaveBtn = new Vue({
     el : "#mainSaveBtn",
     methods:{
-        saveBtn : function(event){
+        saveFn : function(event){
             if (!confirm("저장하시겠습니까?")) {
                 // 취소
-                alert("취소(아니오)를 누르셨습니다.");
+                alert("취소되었습니다");
             } else {
                 // 성공
                 // 성공 후 업데이트 처리
@@ -14,4 +15,26 @@ var mainSaveBtn = new Vue({
             }
         }
     }
-})  
+});
+
+var reIssueBtn = new Vue({
+    el: "#reIssueBtn",
+    methods:{
+        reIssue : function(event){
+            if (!confirm("재발급하시겠습니까?")) {
+                // 취소
+                alert("취소되었습니다");
+            } else {
+                // 성공
+                // 성공 후 업데이트 처리
+                var newUuid = uuidv4();
+                var clientSecret = document.getElementById("client_secret");
+                clientSecret.value = newUuid;
+                clientSecret.disabled = true;
+
+                // 성공 앨럿
+                alert("재발급하였습니다");
+            }
+        }
+    }
+});
