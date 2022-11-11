@@ -7,6 +7,9 @@
     <title>Document</title>
     <script src = "../lib/tailwind.js"></script>
     <script src="./includeHtml.js" defer></script>
+    <script src = "../lib/vue2.js"></script>
+
+
 </head>
 <body>
     <div class = 'flex h-screen w-screen m-3'>
@@ -146,11 +149,11 @@
                     <div  class = 'w-4/5 m-3 pl-3 pr-3 font-bold'>
                         입력값
                     </div>
-                    <div>
-                        <button class = 'bg-gray-400 text-center border-4 m-3 pl-3 pr-3 font-bold'>
+                    <div id = "botBtn">
+                        <button v-on:click="saveBtn" class = 'bg-gray-400 text-center border-4 m-3 pl-3 pr-3 font-bold'>
                             저장
                         </button>
-                        <button class = 'bg-gray-400 text-center border-4 m-3 pl-3 pr-3 font-bold'>
+                        <button v-on:click="deleteBtn" class = 'bg-gray-400 text-center border-4 m-3 pl-3 pr-3 font-bold'>
                             삭제
                         </button>
                     </div>
@@ -189,7 +192,7 @@
             </div>
         </div>
 
-    <script src = "../example/apiManage.js"></script>
+    <script src = "../js/apiManage.js"></script>
     </div>
 </body>
 </html>

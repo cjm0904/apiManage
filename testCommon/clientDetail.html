@@ -8,6 +8,7 @@
     <script src = "../lib/tailwind.js"></script>
     <script src="./includeHtml.js" defer></script>
     <script src="../lib/flowbite.js" defer></script>
+    <script src = "../lib/vue2.js"></script>
 </head>
 <body>
     <div class = 'flex h-screen w-screen m-3'>
@@ -22,8 +23,8 @@
                 <div  class = 'w-5/6 m-3 pl-3 pr-3 font-bold'>
                     기본정보
                 </div>
-                <div>
-                    <button class = 'w-full bg-gray-400 text-center border-4 m-3 pl-3 pr-3 font-bold'>
+                <div id = 'mainSaveBtn'>
+                    <button  v-on:click="saveBtn" class = 'w-full bg-gray-400 text-center border-4 m-3 pl-3 pr-3 font-bold'>
                         저장
                     </button>
                 </div>
@@ -602,6 +603,6 @@
 
         </div>
     </div>
-
+    <script src = "../js/clientDetail.js"></script>
 </body>
 </html>
